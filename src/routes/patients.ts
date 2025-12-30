@@ -6,3 +6,5 @@ const route = express.Router();
 route.get('/', (_req, res) => {
     res.status(200).json(patientsService.getNonSensitiveData());
 });
+
+export default route;
