@@ -8,13 +8,13 @@ const app = express();
 app.use(express.json());
 app.use(cors());
 
-app.get('api/ping', (_req, res) => {
+app.use('/api/diagnoses', diagnosRouter);
+app.use('/api/patients', patientsRouter);
+
+app.get('/api/ping', (_req, res) => {
     console.log('someone pingned here')
 
     res.status(200).send('pong')
 });
-
-app.use('api/diagnoses', diagnosRouter);
-app.use('api/patientor', patientsRouter);
 
 export default app;
