@@ -13,6 +13,11 @@ export interface Patients {
     occupation: string;
 }
 
+export enum Gender {
+    Male = 'male',
+    Female = 'female'
+}
+
 export type PatientsPreview = Omit<Patients, "ssn">;
 
 export type NewPatient = Omit<Patients, "id">;
