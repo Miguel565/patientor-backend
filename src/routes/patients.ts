@@ -18,6 +18,15 @@ route.get('/:id', (req, res) => {
     }
 });
 
+route.post('/:id/entries', (req, res) => {
+    try {
+        const entryAdded = patientsService.addEntry(req.params.id, req.body);
+        res.json(entryAdded);
+    } catch (error: unknown) {
+        res.status(400).send(error);
+    }
+});
+
 route.post('/', (req, res) => {
     try {
         const newPatient = toNewPatient(req.body);
